@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './Styles/App.css'
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap'
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap'
 import classnames from 'classnames'
+import BoxCategories from '../Components/Styles/BoxCategories'
 
 class App extends Component {
   state = {
@@ -62,22 +63,7 @@ class App extends Component {
             </Row>
           </TabPane>
           <TabPane tabId='2'>
-            <Row>
-              <Col sm='6'>
-                <Card body>
-                  <CardTitle>Special Title Treatment</CardTitle>
-                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                  <Button>Go somewhere</Button>
-                </Card>
-              </Col>
-              <Col sm='6'>
-                <Card body>
-                  <CardTitle>Special Title Treatment</CardTitle>
-                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                  <Button>Go somewhere</Button>
-                </Card>
-              </Col>
-            </Row>
+            <BoxCategories active={true} categoryTitle='Hello Box' />
           </TabPane>
           <TabPane tabId='3'>
             <Row>
