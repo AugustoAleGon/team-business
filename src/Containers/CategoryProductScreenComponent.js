@@ -2,30 +2,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTh } from '@fortawesome/free-solid-svg-icons'
 import BoxProductList from '../Components/Styles/BoxProductList'
+import PropTypes from 'prop-types'
 import data from '../Data'
-
-const dummyData = [
-{
-  'id': 'c9a5c012-6295-48d5-a103-68ca76ff047b',
-  'name': 'Intelligent Concrete Computer',
-  'description': 'Omnis veritatis in aliquam aspernatur nulla. Officia quidem qui. Maxime veniam nulla sint qui dolorem qui saepe neque placeat. Magni culpa aut eos molestiae nihil molestias. Quidem consectetur quia quo blanditiis perspiciatis facere dolorem.',
-  'price': '752.00',
-  'brand': 'Gusikowski - Ebert',
-  'stock': 44903,
-  'photo': 'http://lorempixel.com/640/480/technics',
-  'categories': ['Services']
-},
-{
-  'id': 'b98fba89-fd2e-493d-81f8-65ce6142bdcc',
-  'name': 'Intelligent Fresh Keyboard',
-  'description': 'Et omnis voluptas. Eveniet est nostrum beatae aut dolores qui illo quis. Eveniet libero sint consectetur dolor doloremque cumque quos iste.',
-  'price': '520.00',
-  'brand': 'McCullough, Parisian and Waters',
-  'stock': 55349,
-  'photo': 'http://lorempixel.com/640/480/sports',
-  'categories': ['Office']
-}
-]
 
 class CategoryProductScreenComponent extends React.Component {
   state = {
@@ -82,6 +60,10 @@ class CategoryProductScreenComponent extends React.Component {
       </div>
     )
   }
+}
+
+CategoryProductScreenComponent.propTypes = {
+    className: PropTypes.string
 }
 
 export default CategoryProductScreenComponent

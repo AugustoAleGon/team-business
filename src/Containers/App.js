@@ -3,8 +3,6 @@ import './Styles/App.css'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap'
 import classnames from 'classnames'
 import CategoriesMenuScreen from './Styles/CategoriesMenuScreen'
-import BoxProductList from '../Components/Styles/BoxProductList'
-import data from '../Data';
 import CategoryProductScreen from './Styles/CategoryProductScreen';
 
 class App extends Component {
