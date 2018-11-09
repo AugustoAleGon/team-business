@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import './Styles/App.css'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap'
 import classnames from 'classnames'
-import BoxCategories from '../Components/Styles/BoxCategories'
+import CategoriesMenuScreen from './Styles/CategoriesMenuScreen'
+import BoxProductList from '../Components/Styles/BoxProductList'
+import data from '../Data';
+import CategoryProductScreen from './Styles/CategoryProductScreen';
 
 class App extends Component {
   state = {
@@ -63,7 +66,14 @@ class App extends Component {
             </Row>
           </TabPane>
           <TabPane tabId='2'>
-            <BoxCategories active={true} categoryTitle='Hello Box' />
+            <Row>
+            <Col sm="3" md="4">
+              <CategoriesMenuScreen />
+            </Col>
+            <Col sm="9" md="8">
+              <CategoryProductScreen />
+            </Col>
+            </Row>
           </TabPane>
           <TabPane tabId='3'>
             <Row>

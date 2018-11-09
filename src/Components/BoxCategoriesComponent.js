@@ -45,7 +45,8 @@ BoxCategoriesComponent.propTypes = {
   actionClick: PropTypes.func,
   active: PropTypes.bool,
   iconName: PropTypes.string,
-  categoryTitle: PropTypes.string
+  categoryTitle: PropTypes.string,
+  lineBreak: PropTypes.bool
 }
 
 export default BoxCategoriesComponent
