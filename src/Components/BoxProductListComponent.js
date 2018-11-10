@@ -9,7 +9,7 @@ class BoxProductListComponent extends React.PureComponent {
         <h4 className='brandStyle'>{this.props.brand}</h4>
         <div className='sectionHorizontal'>
           <div className='wrapperImage'>
-            <img src={this.props.photo} className='imgStyle' alt='Product'/>
+            <img src={this.props.photo} className='imgStyle' alt='Product' />
           </div>
           <div className='rightSection'>
             <p className='descriptionText'>

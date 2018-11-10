@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import BoxCategories from '../Components/Styles/BoxCategories'
+import {connect} from 'react-redux'
+import Creators from '../Redux/Reducers/product'
+import { bindActionCreators } from 'redux'
 
 const categoriesOArray = [
   {
@@ -23,6 +26,8 @@ class CategoriesMenuScreenComponent extends React.Component {
     }
 
   _touchComponent = (value) => {
+    const menuChoice = categoriesOArray[value]
+    this.props.setMenu(menuChoice)
       this.setState({indexMenu: value})
   }
 
@@ -50,8 +55,20 @@ class CategoriesMenuScreenComponent extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    menu: state.menu
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setMenu: bindActionCreators(Creators.setMenu, dispatch)
+  }
+}
+
 CategoriesMenuScreenComponent.propTypes = {
   className: PropTypes.string
 }
 
-export default CategoriesMenuScreenComponent
+export default connect(mapStateToProps, mapDispatchToProps)(CategoriesMenuScreenComponent)

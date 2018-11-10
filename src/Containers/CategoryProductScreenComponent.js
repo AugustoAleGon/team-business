@@ -4,6 +4,8 @@ import { faBars, faTh } from '@fortawesome/free-solid-svg-icons'
 import BoxProductList from '../Components/Styles/BoxProductList'
 import PropTypes from 'prop-types'
 import data from '../Data'
+import {connect} from 'react-redux'
+import { filterMenu } from '../Lib/Utils'
 
 class CategoryProductScreenComponent extends React.Component {
   state = {
@@ -12,10 +14,16 @@ class CategoryProductScreenComponent extends React.Component {
 
   componentDidMount () {
     // Make the http request to the server
-    const sliceData = data.slice(0,10)
-    console.log('My slice data is: ', sliceData)
-    this.setState({productList: sliceData})
+    this.setState({productList: data})
+    console.log('At the beginning we have: ', this.props.menu)
   }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.menu !== this.props.menu) {
+      this.setState({ productList: filterMenu(data, this.props.menu)})
+    }
+  }
+
   render () {
     return (
 
@@ -31,7 +39,7 @@ class CategoryProductScreenComponent extends React.Component {
                 Showing
               </p>
               <p className='boldText'>
-                &nbsp;10&nbsp;
+                &nbsp;{this.state.productList.length}&nbsp;
               </p>
               <p className='plainText'>
                  products - Hidden:
@@ -62,8 +70,14 @@ class CategoryProductScreenComponent extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    menu: state.menu
+  }
+}
+
 CategoryProductScreenComponent.propTypes = {
     className: PropTypes.string
 }
 
-export default CategoryProductScreenComponent
+export default connect(mapStateToProps, null)(CategoryProductScreenComponent)

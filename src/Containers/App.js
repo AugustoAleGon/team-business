@@ -6,8 +6,11 @@ import CategoriesMenuScreen from './Styles/CategoriesMenuScreen'
 import CategoryProductScreen from './Styles/CategoryProductScreen';
 
 class App extends Component {
-  state = {
-    activeTab: '2'
+  constructor(props) {
+    super(props)
+    this.state = {
+      activeTab: '2'
+    }
   }
 
   toggle = (tab) => {
@@ -83,7 +86,7 @@ class App extends Component {
           <TabPane tabId='4'>
             <Row>
               <Col sm='12'>
-                <h4>Tab 4 Contents</h4>
+                <h4>Contact Info</h4>
               </Col>
             </Row>
           </TabPane>
