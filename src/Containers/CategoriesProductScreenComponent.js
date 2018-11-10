@@ -7,7 +7,7 @@ import data from '../Data'
 import {connect} from 'react-redux'
 import { filterMenu } from '../Lib/Utils'
 
-class CategoryProductScreenComponent extends React.Component {
+class CategoriesProductScreenComponent extends React.Component {
   state = {
     productList: []
   }
@@ -15,7 +15,6 @@ class CategoryProductScreenComponent extends React.Component {
   componentDidMount () {
     // Make the http request to the server
     this.setState({productList: data})
-    console.log('At the beginning we have: ', this.props.menu)
   }
 
   componentDidUpdate (prevProps) {
@@ -76,8 +75,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-CategoryProductScreenComponent.propTypes = {
+CategoriesProductScreenComponent.propTypes = {
     className: PropTypes.string
 }
 
-export default connect(mapStateToProps, null)(CategoryProductScreenComponent)
+export default connect(mapStateToProps, null)(CategoriesProductScreenComponent)

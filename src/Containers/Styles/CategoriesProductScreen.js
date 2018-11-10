@@ -1,7 +1,7 @@
-import CategoryProductScreenComponent from '../CategoryProductScreenComponent'
+import CategoriesProductScreenComponent from '../CategoriesProductScreenComponent'
 import styled from 'styled-components'
 
-const CategoryProductScreen = styled(CategoryProductScreenComponent)`
+const CategoriesProductScreen = styled(CategoriesProductScreenComponent)`
   display: flex;
   flex: 1;
   padding: 0px 15px 0px 15px;
@@ -47,4 +47,4 @@ const CategoryProductScreen = styled(CategoryProductScreenComponent)`
   }
 `
 
-export default CategoryProductScreen
+export default CategoriesProductScreen

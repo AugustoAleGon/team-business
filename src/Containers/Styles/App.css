@@ -5,6 +5,12 @@
   background-color: rgb(140, 140, 140);
   color: inherit;
 }
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
 h3, .h3 {
   text-align: center;
 }
