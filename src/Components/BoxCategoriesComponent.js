@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faLaptop, faWrench, faFolder, faQuestion } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const iconDynamic = (iconName) => {
   let icon
@@ -28,14 +29,16 @@ const iconDynamic = (iconName) => {
 class BoxCategoriesComponent extends React.PureComponent {
   render () {
     return (
-      <div className={this.props.className + (this.props.active ? ' active' : ' inactive')} onClick={this.props.actionClick}>
-        <div className='icon-container'>
-          <FontAwesomeIcon icon={iconDynamic(this.props.iconName)} color='white' size='sm' />
+      <Link to={`/products/${this.props.categoryTitle.toLowerCase()}`}>
+        <div className={this.props.className + (this.props.active ? ' active' : ' inactive')} onClick={this.props.actionClick}>
+          <div className='icon-container'>
+            <FontAwesomeIcon icon={iconDynamic(this.props.iconName)} color='white' size='sm' />
+          </div>
+          <div className='title-container'>
+            <p className='title-category'>{this.props.categoryTitle}</p>
+          </div>
         </div>
-        <div className='title-container'>
-          <p className='title-category'>{this.props.categoryTitle}</p>
-        </div>
-      </div>
+      </Link>
     )
   }
 }

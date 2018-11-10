@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import './Styles/App.css'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap'
 import classnames from 'classnames'
-import { BrowserRouter as Router, NavLink as RRNavLink} from "react-router-dom"
-import CategoriesMenuScreen from './Styles/CategoriesMenuScreen'
-import CategoriesProductScreen from './Styles/CategoriesProductScreen'
+import {Route, NavLink as RRNavLink} from "react-router-dom"
+import CategoriesScreen from './CategoriesScreen';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeTab: '2'
+      activeTab: '1'
     }
   }
 
@@ -21,10 +20,9 @@ class App extends Component {
       })
     }
   }
-
+  
   render () {
     return (
-      <Router>
         <div>
           <Nav tabs className='row justify-content-center'>
             <NavItem>
@@ -35,13 +33,12 @@ class App extends Component {
                 className={classnames({ active: this.state.activeTab === '1' })}
                 onClick={() => { this.toggle('1') }}
               >
-                HOME
+            HOME
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink
                 tag={RRNavLink}
-                exact
                 to='/products'
                 className={classnames({ active: this.state.activeTab === '2' })}
                 onClick={() => { this.toggle('2') }}
@@ -52,7 +49,6 @@ class App extends Component {
             <NavItem>
               <NavLink
                 tag={RRNavLink}
-                exact
                 to='/clients'
                 className={classnames({ active: this.state.activeTab === '3' })}
                 onClick={() => { this.toggle('3') }}
@@ -63,7 +59,6 @@ class App extends Component {
             <NavItem>
               <NavLink
                 tag={RRNavLink}
-                exact
                 to='/contact'
                 className={classnames({ active: this.state.activeTab === '4' })}
                 onClick={() => { this.toggle('4') }}
@@ -82,14 +77,7 @@ class App extends Component {
               </Row>
             </TabPane>
             <TabPane tabId='2'>
-              <Row>
-              <Col sm="3" md="4">
-                <CategoriesMenuScreen />
-              </Col>
-              <Col sm="9" md="8">
-                <CategoriesProductScreen />
-              </Col>
-              </Row>
+              <Route path='/products' component={CategoriesScreen}/>
             </TabPane>
             <TabPane tabId='3'>
               <Row>
@@ -107,7 +95,6 @@ class App extends Component {
             </TabPane>
           </TabContent>
         </div>
-      </Router>
     )
   }
 }
