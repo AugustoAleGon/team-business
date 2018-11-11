@@ -29,7 +29,7 @@ const iconDynamic = (iconName) => {
 class BoxCategoriesComponent extends React.PureComponent {
   render () {
     return (
-      <Link to={`/products/${this.props.categoryTitle.toLowerCase()}`}>
+      <Link to={`/products${this.props.categoryTitle === 'All' ? '' : '/' + this.props.categoryTitle.toLowerCase()}`}>
         <div className={this.props.className + (this.props.active ? ' active' : ' inactive')} onClick={this.props.actionClick}>
           <div className='icon-container'>
             <FontAwesomeIcon icon={iconDynamic(this.props.iconName)} color='white' size='sm' />

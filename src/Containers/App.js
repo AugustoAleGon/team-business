@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeTab: '1'
+      activeTab: window.location.pathname
     }
   }
 
@@ -20,7 +20,7 @@ class App extends Component {
       })
     }
   }
-  
+
   render () {
     return (
         <div>
@@ -30,8 +30,8 @@ class App extends Component {
                 tag={RRNavLink}
                 exact
                 to='/'
-                className={classnames({ active: this.state.activeTab === '1' })}
-                onClick={() => { this.toggle('1') }}
+                className={classnames({ active: this.state.activeTab === '/' })}
+                onClick={() => { this.toggle('/') }}
               >
             HOME
               </NavLink>
@@ -40,8 +40,8 @@ class App extends Component {
               <NavLink
                 tag={RRNavLink}
                 to='/products'
-                className={classnames({ active: this.state.activeTab === '2' })}
-                onClick={() => { this.toggle('2') }}
+                className={classnames({ active: this.state.activeTab === '/products' })}
+                onClick={() => { this.toggle('/products') }}
               >
             PRODUCTS
               </NavLink>
@@ -50,8 +50,8 @@ class App extends Component {
               <NavLink
                 tag={RRNavLink}
                 to='/clients'
-                className={classnames({ active: this.state.activeTab === '3' })}
-                onClick={() => { this.toggle('3') }}
+                className={classnames({ active: this.state.activeTab === '/clients' })}
+                onClick={() => { this.toggle('/clients') }}
               >
             CLIENTS
               </NavLink>
@@ -60,15 +60,15 @@ class App extends Component {
               <NavLink
                 tag={RRNavLink}
                 to='/contact'
-                className={classnames({ active: this.state.activeTab === '4' })}
-                onClick={() => { this.toggle('4') }}
+                className={classnames({ active: this.state.activeTab === '/contact' })}
+                onClick={() => { this.toggle('/contact') }}
               >
             CONTACT
               </NavLink>
             </NavItem>
           </Nav>
           <TabContent activeTab={this.state.activeTab}>
-            <TabPane tabId='1'>
+            <TabPane tabId='/'>
               <Row className='justify-content-center'>
                 <Col sm='12' md='12' className='justify-content-center'>
                   <h1>Welcome to Team Business!</h1>
@@ -76,17 +76,17 @@ class App extends Component {
                 </Col>
               </Row>
             </TabPane>
-            <TabPane tabId='2'>
+            <TabPane tabId='/products'>
               <Route path='/products' component={CategoriesScreen}/>
             </TabPane>
-            <TabPane tabId='3'>
+            <TabPane tabId='/clients'>
               <Row>
                 <Col sm='12'>
                   <h4>Clients everywhere!</h4>
                 </Col>
               </Row>
             </TabPane>
-            <TabPane tabId='4'>
+            <TabPane tabId='/contact'>
               <Row>
                 <Col sm='12'>
                   <h4>Contact Info</h4>

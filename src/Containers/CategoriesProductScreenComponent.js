@@ -2,6 +2,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTh } from '@fortawesome/free-solid-svg-icons'
 import BoxProductList from '../Components/Styles/BoxProductList'
+import BoxProductBlock from '../Components/Styles/BoxProductBlock'
+import { Col, Row } from 'reactstrap'
 import PropTypes from 'prop-types'
 import data from '../Data'
 import {connect} from 'react-redux'
@@ -9,7 +11,8 @@ import { filterMenu } from '../Lib/Utils'
 
 class CategoriesProductScreenComponent extends React.Component {
   state = {
-    productList: []
+    productList: [],
+    squareMenu: false
   }
 
   componentDidMount () {
@@ -25,13 +28,22 @@ class CategoriesProductScreenComponent extends React.Component {
 
   render () {
     return (
-
       <div className={this.props.className}>
         <div className='topbarContainer'>
           <div className='sectionLeft'>
             <div className='iconsContainer'>
-              <FontAwesomeIcon icon={faBars} />
-              <FontAwesomeIcon icon={faTh} />
+              <FontAwesomeIcon
+                onClick={ () => {
+                  this.setState({squareMenu: !this.state.squareMenu})
+                }}
+                color={this.state.squareMenu ? 'rgb(180,180,180)' : '#000'}
+                icon={faBars} />
+              <FontAwesomeIcon
+                onClick={ () => {
+                    this.setState({squareMenu: !this.state.squareMenu})
+                }}
+                color={this.state.squareMenu ? '#000' : 'rgb(180,180,180)'}
+                icon={faTh} />
             </div>
             <div className='oneLineText'>
               <p className='plainText'>
@@ -41,18 +53,43 @@ class CategoriesProductScreenComponent extends React.Component {
                 &nbsp;{this.state.productList.length}&nbsp;
               </p>
               <p className='plainText'>
-                 products - Hidden:
+                 products
               </p>
-              <p className='boldText'>
-                &nbsp;0
-              </p>
+              {
+                this.props.menu !== 'All' &&
+                <div className='oneLine'>
+                  <p className='plainText'>
+                    &nbsp;- Hidden:
+                  </p>
+                  <p className='boldText'>
+                    &nbsp;0
+                  </p>
+                </div>
+              }
             </div>
           </div>
           <div className='sectionRight'>
             <input placeholder='Search' />
           </div>
         </div>
+        <Row>
         {
+          this.state.squareMenu &&
+          this.state.productList.map( (item, index) => (
+            <Col sm='12' md='12' lg='6'>
+              <BoxProductBlock
+                key={index}
+                name={item.name}
+                brand={item.brand}
+                photo={item.photo}
+                description={item.description}
+                stock={item.stock}
+                price={item.price} />
+            </Col>
+        ))
+        }
+        </Row>
+        {   !this.state.squareMenu &&
             this.state.productList.map( (item, index) => (
                 <BoxProductList
                     key={index}

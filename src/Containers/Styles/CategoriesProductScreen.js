@@ -10,7 +10,7 @@ const CategoriesProductScreen = styled(CategoriesProductScreenComponent)`
   overflow: auto;
   .topbarContainer {
       height: min-content;
-      min-height: 100px;
+      min-height: 65px;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -26,6 +26,10 @@ const CategoriesProductScreen = styled(CategoriesProductScreenComponent)`
   .sectionLeft {
       display: flex;
       flex-direction: column;
+  }
+  .oneLine {
+      display: flex;
+      flex-direction: row;
   }
   .oneLineText {
       display: flex;
