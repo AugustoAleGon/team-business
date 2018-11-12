@@ -76,9 +76,8 @@ class CategoriesProductScreenComponent extends React.Component {
         {
           this.state.squareMenu &&
           this.state.productList.map( (item, index) => (
-            <Col sm='12' md='12' lg='6'>
+            <Col sm='12' md='12' lg='6' key={index}>
               <BoxProductBlock
-                key={index}
                 name={item.name}
                 brand={item.brand}
                 photo={item.photo}
@@ -89,7 +88,8 @@ class CategoriesProductScreenComponent extends React.Component {
         ))
         }
         </Row>
-        {   !this.state.squareMenu &&
+        {   
+            !this.state.squareMenu &&
             this.state.productList.map( (item, index) => (
                 <BoxProductList
                     key={index}

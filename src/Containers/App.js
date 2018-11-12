@@ -3,7 +3,8 @@ import './Styles/App.css'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap'
 import classnames from 'classnames'
 import {Route, NavLink as RRNavLink} from "react-router-dom"
-import CategoriesScreen from './CategoriesScreen';
+import CategoriesScreen from './CategoriesScreen'
+import ContactScreen from './Styles/ContactScreen'
 
 class App extends Component {
   constructor(props) {
@@ -87,9 +88,9 @@ class App extends Component {
               </Row>
             </TabPane>
             <TabPane tabId='/contact'>
-              <Row>
-                <Col sm='12'>
-                  <h4>Contact Info</h4>
+              <Row className='justify-content-center align-items-center'>
+                <Col sm='12' className='mx-auto'>
+                  <ContactScreen />
                 </Col>
               </Row>
             </TabPane>
