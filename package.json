@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fixcode": "standard --fix"
+    "fixcode": "standard --fix",
+    "start:server": "cd server && yarn start && cd .."
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -9,11 +9,13 @@ class ContactScreenComponent extends React.Component {
         return (
             <div className={this.props.className}>
                  <form onSubmit={this.submitContactInfo} className='boxContainer'>
-                     <input className='inputBox' type='text' placeholder='First Name' />
-                     <input className='inputBox' type='text' placeholder='Last Name' />
-                     <input className='inputBox' type='text' placeholder='Email' />
-                     <textarea className='inputSubject' type='text' placeholder='Subject' />
-                     <input className='submitBox' type='submit' value='SUBMIT'/>
+                     <input className='inputBox' type='text' placeholder='First Name' required maxLength='255' />
+                     <input className='inputBox' type='text' placeholder='Last Name' required maxLength='255' />
+                     <input className='inputBox' type='email' placeholder='Email' required maxLength='255' />
+                     <textarea className='inputSubject' type='text' placeholder='Subject' required maxLength='500' />
+                     <div className='submitContainer'>
+                        <input className='submitBox' type='submit' value='SUBMIT'/>
+                     </div>
                  </form>
             </div>
         )

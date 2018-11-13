@@ -5,8 +5,8 @@ const ContactScreen = styled(ContactScreenComponent)`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
-    min-width: 400px;
+    min-height: 300px;
+    min-width: 300px;
     width: 500px;
     height: 500px;
     border-radius: 20px;
@@ -36,6 +36,14 @@ const ContactScreen = styled(ContactScreenComponent)`
         border: none;
         border-bottom: 0.5px solid rgb(224, 224, 224);
         resize: none;
+    }
+    .submitContainer {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .submitBox {
+        min-width: 100px;
+        background-color: rgb(176, 176, 176);
     }
 `
 

@@ -72,8 +72,7 @@ class App extends Component {
             <TabPane tabId='/'>
               <Row className='justify-content-center'>
                 <Col sm='12' md='12' className='justify-content-center'>
-                  <h1>Welcome to Team Business!</h1>
-                  <h3>We got the best products for you!</h3>
+                  <h1>Home</h1>
                 </Col>
               </Row>
             </TabPane>
@@ -83,7 +82,7 @@ class App extends Component {
             <TabPane tabId='/clients'>
               <Row>
                 <Col sm='12'>
-                  <h4>Clients everywhere!</h4>
+                  <h1>Clients</h1>
                 </Col>
               </Row>
             </TabPane>
