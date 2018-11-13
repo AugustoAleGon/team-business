@@ -104,6 +104,6 @@ var data = [
   {
     'id': 'cd7ba5e2-c38b-42e8-9c24-99bc4f6fadd9', 'name': 'Handmade Cotton Mouse', 'description': 'Sunt quas nam suscipit rem. Eos asperiores architecto architecto. Commodi doloremque ipsam saepe omnis ut cum veritatis et perferendis. Perspiciatis ratione nulla id omnis. Accusamus illo doloribus consequatur.', 'price': '573.00', 'brand': 'Hayes - Christiansen', 'stock': 29631, 'photo': 'http://lorempixel.com/640/480/abstract', 'categories': ['Tech', 'Services'] }]
 
-module.exports.data = function (){
-  return data;
+module.exports.data = function () {
+  return data
 }

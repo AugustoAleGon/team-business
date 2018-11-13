@@ -8,6 +8,8 @@ import PropTypes from 'prop-types'
 import data from '../Data'
 import {connect} from 'react-redux'
 import { filterMenu } from '../Lib/Utils'
+import { bindActionCreators } from 'redux'
+import productsAction from '../Redux/Reducers/product'
 
 class CategoriesProductScreenComponent extends React.Component {
   state = {
@@ -15,14 +17,19 @@ class CategoriesProductScreenComponent extends React.Component {
     squareMenu: false
   }
 
-  componentDidMount () {
+  async componentWillMount () {
     // Make the http request to the server
-    this.setState({productList: data})
+    await this.props.getProducts()
+
+  }
+
+  componentDidMount () {
+    this.setState({productList: this.props.products})
   }
 
   componentDidUpdate (prevProps) {
-    if (prevProps.menu !== this.props.menu) {
-      this.setState({ productList: filterMenu(data, this.props.menu)})
+    if (prevProps.menu !== this.props.menu || prevProps.products !== this.props.products) {
+      this.setState({ productList: filterMenu(this.props.products, this.props.menu)})
     }
   }
 
@@ -108,7 +115,14 @@ class CategoriesProductScreenComponent extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    menu: state.menu
+    menu: state.menu,
+    products: state.products
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProducts: bindActionCreators(productsAction.getProducts, dispatch)
   }
 }
 
@@ -116,4 +130,4 @@ CategoriesProductScreenComponent.propTypes = {
     className: PropTypes.string
 }
 
-export default connect(mapStateToProps, null)(CategoriesProductScreenComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(CategoriesProductScreenComponent)

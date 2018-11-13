@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
   setMenu: ['menu']
 })
 
-export const productType = Types
+export const productTypes = Types
 
 export default Creators
 
@@ -27,10 +27,12 @@ const initFetch = (state) => ({
   fetching: true
 })
 
-const setProducts = (state, action) => ({
-  ...state,
-  products: action.response
-})
+const setProducts = (state, action) => {
+  return ({
+    ...state,
+    products: action.response
+  })
+}
 
 const failResponse = (state, action) => ({
   ...state,
